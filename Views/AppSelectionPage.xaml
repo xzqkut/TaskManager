@@ -1,0 +1,39 @@
+﻿<Page x:Class="TaskManager.Views.AppSelectionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Выбор приложений">
+
+    <Grid Margin="40" Background="#FF3A9E97">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Выберите программы для блокировки"
+                       FontSize="28"
+                       Margin="0,0,0,10" />
+
+            <TextBlock Text="Текущая задача:" />
+
+            <TextBlock x:Name="TaskTitleTextBlock"
+                       FontSize="20"
+                       Margin="0,5,0,15" />
+
+            <TextBlock Text="Поставь галочку у программ, которые нельзя открывать." />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1"
+                      Margin="0,20,0,20"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="ApplicationsPanel" />
+        </ScrollViewer>
+
+        <Button Grid.Row="2"
+                Content="Начать фокус"
+                Height="45"
+                FontSize="18"
+                Click="StartFocusButton_Click" Background="#FF475080" />
+    </Grid>
+</Page>

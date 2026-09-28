@@ -23,11 +23,7 @@ namespace TaskManager
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Tittle_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            MainFrame.Navigate(new Views.StartPage());
         }
     }
 }

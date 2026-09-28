@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager"
         mc:Ignorable="d"
-        Title="Task Manager" Height="550" Width="1280">
+        Title="FocusTask"
+        Height="550"
+        Width="1280">
     <Grid>
-        <TextBox x:Name="Tittle" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Task Manager" VerticalAlignment="Top" Width="330" Height="101" TextChanged="Tittle_TextChanged" FontSize="52"/>
-        <Button x:Name="ButtonTask" Content="Добавить задачу" HorizontalAlignment="Left" Margin="128,384,0,0" VerticalAlignment="Top" Height="46" Width="197" FontSize="24"/>
-
+        <Frame x:Name="MainFrame"
+               NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
