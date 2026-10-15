@@ -6,33 +6,35 @@ namespace TaskManager.Models
     internal class FocusSession
     {
         private List<UserTask> _tasks;
+        private Dictionary<string,SessionAppEntry> _applications;
         public FocusSession(TimeSpan timeSession)
         {
-
             if (timeSession <= TimeSpan.Zero)
             {
                 throw new ArgumentException("Введите время целым числом больше нуля.");
             }
 
             _tasks = new List<UserTask>();
-            Applications = new Dictionary<string, SessionAppEntry>(StringComparer.OrdinalIgnoreCase);
+            _applications = new Dictionary<string, SessionAppEntry>(StringComparer.OrdinalIgnoreCase);
             TimeSession = timeSession;
         }
 
         public TimeSpan TimeSession { get; private set; }
-        public Dictionary<string, SessionAppEntry> Applications { get; private set; }
+        public IReadOnlyDictionary<string, SessionAppEntry> Applications => _applications;
         public DateTime? StartedAt { get; private set; }
         public bool IsRunning { get; private set; }
-
         public bool IsFinished { get; private set; }
-
         public event Action SessionFinished;
+
         public void AddTaskToSession(UserTask task)
         {
             _tasks.Add(task);
-
         }
 
+        public void AddApplication(string path, SessionAppEntry entry)
+        {
+            _applications.Add(path, entry);
+        }
         public IReadOnlyList<UserTask> GetTasks()
         {
             return _tasks;

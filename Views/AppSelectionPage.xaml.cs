@@ -34,7 +34,7 @@ namespace TaskManager.Views
                 SessionAppEntry entry =
                     new SessionAppEntry(app, false);
 
-                _session.Applications.Add(app.Path, entry);
+                _session.AddApplication(app.Path,entry);
 
                 CheckBox checkBox = new CheckBox
                 {

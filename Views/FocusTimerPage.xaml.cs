@@ -17,6 +17,7 @@ namespace TaskManager.Views
         private DispatcherTimer _timenow;
         private FocusSession _focusSession;
         private ProcessMonitor _processMonitor;
+
         internal FocusTimerPage(FocusSession session)
         {
             InitializeComponent();
@@ -34,9 +35,8 @@ namespace TaskManager.Views
 
             _timenow.Tick += TimerTick;
             _timenow.Start();
-
-
         }
+
         private void WarnAndCloseBlockedApplications()
         {
             List<BlockedProcessInfo> blockedApps =
@@ -45,9 +45,7 @@ namespace TaskManager.Views
             foreach (BlockedProcessInfo app in blockedApps)
             {
                 _processMonitor.CloseApplication(app.Process);
-                MessageBox.Show(
-                    "Запрещённое приложение будет закрыто: " + app.Applications.Name,
-                    "FocusTask");
+                MessageBox.Show("Запрещённое приложение будет закрыто: " + app.Applications.Name,"FocusTask");
 
             }
         }
